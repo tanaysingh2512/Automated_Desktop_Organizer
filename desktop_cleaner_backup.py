@@ -6,9 +6,7 @@ from datetime import datetime
 from pathlib import Path
 
 DESKTOP_PATH = Path.home() / "Desktop"
-
 CONFIG_PATH = Path(__file__).parent / "config.json"
-
 LOGS_DIR = Path(__file__).parent / "logs"
 LOGS_DIR.mkdir(exist_ok=True)
 
