@@ -3,7 +3,6 @@ import shutil
 import pandas as pd
 from pathlib import Path
 
-# --- CONFIG ---
 DESKTOP = Path.home() / "Desktop"
 DATA_FILE = Path(__file__).parent / "file_training_data.csv"
 TARGET_FOLDERS = {
@@ -14,9 +13,8 @@ TARGET_FOLDERS = {
     "Others": []
 }
 
-# --- 1️⃣ Collect data for ML ---
+# Record file movement into CSV dataset.
 def log_file_move(file_name, destination_folder):
-    """Record file movement into CSV dataset."""
     df = pd.DataFrame([[file_name, destination_folder]], columns=["filename", "label"])
     if DATA_FILE.exists():
         df.to_csv(DATA_FILE, mode="a", header=False, index=False)
@@ -24,7 +22,6 @@ def log_file_move(file_name, destination_folder):
         df.to_csv(DATA_FILE, index=False)
     print(f"[LOG] Recorded: {file_name} -> {destination_folder}")
 
-# --- 2️⃣ Clean + log files ---
 def clean_desktop():
     for file in DESKTOP.iterdir():
         if file.is_file():
@@ -48,4 +45,4 @@ def clean_desktop():
 
 if __name__ == "__main__":
     clean_desktop()
-    print("✅ Cleaning + data logging complete!")
+    print("Cleaning + data logging complete!")
