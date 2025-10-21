@@ -6,32 +6,26 @@ from sklearn.metrics import classification_report
 import joblib
 from pathlib import Path
 
-# --- Load data ---
 DATA_FILE = Path(__file__).parent / "file_training_data.csv"
 df = pd.read_csv(DATA_FILE)
-
-# Separate features and labels
 X = df["filename"]
 y = df["label"]
 
-# --- Convert text to numeric features ---
+# Convert text to numeric features
 vectorizer = CountVectorizer()
 X_vectorized = vectorizer.fit_transform(X)
 
-# --- Split dataset for evaluation ---
+# Split dataset for evaluation
 X_train, X_test, y_train, y_test = train_test_split(
     X_vectorized, y, test_size=0.2, random_state=42
 )
-
-# --- Train model ---
 model = MultinomialNB()
 model.fit(X_train, y_train)
 
-# --- Evaluate model ---
+#  Evaluate model 
 y_pred = model.predict(X_test)
 print("Classification Report:")
 print(classification_report(y_test, y_pred))
 
-# --- Save model & vectorizer ---
 joblib.dump((vectorizer, model), Path(__file__).parent / "file_classifier.pkl")
-print("✅ Model trained and saved as 'file_classifier.pkl'")
+print("Model trained and saved as 'file_classifier.pkl'")
