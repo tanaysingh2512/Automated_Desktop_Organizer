@@ -30,7 +30,7 @@ Includes `desktop_cleaner_backup.py` for safe file management and recovery.
 
 ## Configuration
 
-`{
+```{
   "desktop_path": "/Users/username/Desktop",
   "folders": {
     "Documents": ["pdf", "docx", "txt", "xlsx"],
@@ -39,24 +39,30 @@ Includes `desktop_cleaner_backup.py` for safe file management and recovery.
     "Others": []
   },
   "log_path": "./logs/cleaner.log"
-}`
-
+}
+```
 
 ##Installation
 
 ### Clone the repository
-`git clone https://github.com/tanaysingh2512/Automated_Desktop_Organizer.git
-cd Automated_Desktop_Organizer`
+```
+git clone https://github.com/tanaysingh2512/Automated_Desktop_Organizer.git
+cd Automated_Desktop_Organizer
+```
 
 ### Create and activate a virtual environment
-`python3 -m venv .venv
-source .venv/bin/activate`
+```
+python3 -m venv .venv
+source .venv/bin/activate
+```
 
 ### Install dependencies
-`pip install -r requirements.txt`
+```pip install -r requirements.txt
+```
 
 ### Run the cleaner
-`python desktop_cleaner.py`
+```python desktop_cleaner.py
+```
 
 ## Machine Learning Model
 
@@ -79,10 +85,11 @@ python train_model.py
 | `smart_cleaner.py`          | Enhanced cleaner script integrating both automation and ML.       |
 
 ## Example Log Entry
-`[2025-10-26 00:45:12] INFO - File 'invoice_2025.pdf' moved to 'Documents'
+```
+[2025-10-26 00:45:12] INFO - File 'invoice_2025.pdf' moved to 'Documents'
 [2025-10-26 00:45:12] INFO - File 'photo.jpg' moved to 'Images'
-[2025-10-26 00:45:12] INFO - File 'main.py' moved to 'Code'`
-
+[2025-10-26 00:45:12] INFO - File 'main.py' moved to 'Code'
+```
 ## Technical Stack
 
 ### Language: Python 3.x
