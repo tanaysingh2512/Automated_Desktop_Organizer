@@ -94,8 +94,8 @@ python train_model.py
 ```
 ## Technical Stack
 
-### Language: Python 3.x
+Language: Python 3.x
 
-### Libraries: scikit-learn, pandas, os, shutil, logging, json
+Libraries: scikit-learn, pandas, os, shutil, logging, json
 
-### Model: Supervised learning classifier trained on file metadata and naming patterns
+Model: Supervised learning classifier trained on file metadata and naming patterns
