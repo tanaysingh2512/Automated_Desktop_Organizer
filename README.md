@@ -1,7 +1,7 @@
 # Automated_Desktop_Organizer
 An intelligent desktop organization tool that automatically categorizes, moves, and manages files using machine learning. The system monitors desktop activity, classifies files based on their type and content, and keeps the workspace clutter-free.
-
 This project combines automation, machine learning, and practical file management to improve productivity and digital organization.
+
 Features
 
 Automated File Organization
@@ -22,40 +22,46 @@ Every action is recorded in the logs/ directory for transparency and debugging.
 Backup Functionality
 Includes desktop_cleaner_backup.py for safe file management and recovery.
 
+Configuration
+
+{
+  "desktop_path": "/Users/username/Desktop",
+  "folders": {
+    "Documents": ["pdf", "docx", "txt", "xlsx"],
+    "Images": ["png", "jpg", "jpeg", "gif"],
+    "Code": ["py", "js", "html", "css"],
+    "Others": []
+  },
+  "log_path": "./logs/cleaner.log"
+}
+
 Installation
 
-Clone the repository
-
+# Clone the repository
 git clone https://github.com/tanaysingh2512/Automated_Desktop_Organizer.git
 cd Automated_Desktop_Organizer
 
-
-Create and activate a virtual environment
-
+# Create and activate a virtual environment
 python3 -m venv .venv
-source .venv/bin/activate   # macOS/Linux
-.venv\Scripts\activate      # Windows
+source .venv/bin/activate
 
-
-Install dependencies
-
+# Install dependencies
 pip install -r requirements.txt
 
-Usage
-
-Adjust file paths and settings in config.json to match your system.
-
-Run the main desktop organizer:
-
+# Run the cleaner
 python desktop_cleaner.py
 
+Machine Learning Model
 
-(Optional) Train or retrain the machine learning model:
-
+The ML classifier (file_classifier.pkl) learns from file names, extensions, and metadata to categorize files.
+To retrain the model:
 python train_model.py
 
+Example Log Entry
+[2025-10-26 00:45:12] INFO - File 'invoice_2025.pdf' moved to 'Documents'
+[2025-10-26 00:45:12] INFO - File 'photo.jpg' moved to 'Images'
+[2025-10-26 00:45:12] INFO - File 'main.py' moved to 'Code'
 
-Logs of each operation can be found in the logs/ folder.
 
 File Overview
 
@@ -71,18 +77,6 @@ File Overview
 | `requirements.txt`          | List of Python dependencies for the project.                      |
 | `smart_cleaner.py`          | Enhanced cleaner script integrating both automation and ML.       |
 
-
-Example Output
-
-After execution, files from your desktop are automatically organized into folders such as:
-
-Desktop/
-│
-├── Documents/
-├── Images/
-├── PDFs/
-├── Code/
-└── Others/
 
 Technical Stack
 
